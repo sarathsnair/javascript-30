@@ -1,0 +1,106 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.clock-face {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 3px solid red;
+  border-radius: 50%;
+}
+
+.hand {
+  position: absolute;
+  width: 50%;
+  top: 50%;
+  border: 1px solid;
+  transform: rotate(90deg);
+  transform-origin: bottom right;
+  transition: all 0.5s cubic-bezier(0.42, 0, 0, 3.13);
+}
+
+.seconds-hand {
+  color: red;
+}
+
+.minute-hand {
+  color: blue;
+}
+
+.hour-hand {
+  color: orange;
+}
+
+span.label {
+  position: absolute;
+  font-size: 20px;
+}
+
+.twelve {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.three {
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.six {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.nine {
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+
+.one {
+  right: 22%;
+  top: 6.5%;
+}
+
+.two {
+  right: 6%;
+  top: 25%;
+}
+
+.four {
+  right: 6%;
+  top: 69%;
+}
+
+.five {
+  right: 22%;
+  top: 84%;
+}
+
+.seven {
+  left: 22%;
+  top: 84%;
+}
+
+.eight {
+  left: 6%;
+  top: 69%;
+}
+
+.ten {
+  left: 6%;
+  top: 25%;
+}
+
+.eleven {
+  left: 22%;
+  top: 6.5%;
+}
