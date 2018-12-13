@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,300,900"
+      rel="stylesheet"
+    />
+    <title>CSS Variable</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1>Update CSS variables with <span>JS</span></h1>
+      <div class="controls">
+        <div class="control">
+          <div class="ctrl-name">Spacing:</div>
+          <div class="ctrl">
+            <input
+              type="range"
+              min="10"
+              max="200"
+              value="10"
+              data-sizing="px"
+              name="spacing"
+            />
+          </div>
+        </div>
+        <div class="control">
+          <div class="ctrl-name">Blur:</div>
+          <div class="ctrl">
+            <input
+              type="range"
+              min="0"
+              max="25"
+              value="10"
+              data-sizing="px"
+              name="blur"
+            />
+          </div>
+        </div>
+        <div class="control">
+          <div class="ctrl-name">Base Color:</div>
+          <div class="ctrl">
+            <input type="color" name="base" value="#ffc600" />
+          </div>
+        </div>
+      </div>
+      <img
+        src="https://c.wallhere.com/photos/a9/55/singapore_building_view_from_the_top_light_night-1050384.jpg!d"
+        alt=""
+      />
+    </div>
+  </body>
+  <style>
+    :root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Roboto", sans-serif;
+    }
+    body {
+      background-color: darkcyan;
+    }
+
+    .wrapper {
+      position: relative;
+      margin: 0 auto;
+      text-align: center;
+      width: 50%;
+      top: 30px;
+    }
+
+    h1 {
+      font-size: 3em;
+    }
+
+    h1 span {
+      color: var(--base);
+    }
+
+    span.em {
+      color: orange;
+    }
+
+    .controls {
+      display: flex;
+      margin: 30px 0;
+      justify-content: space-between;
+    }
+
+    .control {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      line-height: 0px;
+    }
+
+    img {
+      width: 100%;
+      padding: var(--spacing);
+      filter: blur(var(--blur));
+      background: var(--base);
+    }
+
+    .ctrl-name {
+      font-weight: 100;
+      font-size: 30px;
+      margin-right: 5px;
+    }
+  </style>
+
+  <script>
+    const inputs = document.querySelectorAll(".controls input");
+    function handleChange() {
+      const suffix = this.dataset.sizing || "";
+      document.documentElement.style.setProperty(
+        `--${this.name}`,
+        this.value + suffix
+      );
+    }
+
+    inputs.forEach(input => input.addEventListener("change", handleChange));
+    inputs.forEach(input => input.addEventListener("mousemove", handleChange));
+  </script>
+</html>
